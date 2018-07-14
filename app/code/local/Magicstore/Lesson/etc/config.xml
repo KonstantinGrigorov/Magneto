@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<config>
+    <modules>
+        <Magicstore_Lesson>
+            <version>1.0.0.0</version>
+        </Magicstore_Lesson>
+    </modules>
+    <frontend>
+        <routers>
+            <lesson>
+                <use>standard</use>
+                <args>
+                    <module>Magicstore_Lesson</module>
+                    <frontName>myfirstpage</frontName>
+                </args>
+            </lesson>
+        </routers>
+        <layout>
+            <updates>
+                <lesson>
+                    <file>lesson.xml</file>
+                </lesson>
+            </updates>
+        </layout>
+    </frontend>
+    <global>
+        <blocks>
+            <lesson>
+                <class>Magicstore_Lesson_Block</class>
+            </lesson>
+        </blocks>
+    </global>
+    <models>
+    </models>
+</config>
