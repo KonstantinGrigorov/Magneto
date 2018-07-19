@@ -17,7 +17,7 @@ and open the template in the editor.
                 <use>standard</use>
                 <args>
                     <module>Magicstore_Lesson</module>
-                    <frontName>myfirstpage</frontName>
+                    <frontName>magicstoretalk</frontName>
                 </args>
             </lesson>
         </routers>
@@ -35,7 +35,19 @@ and open the template in the editor.
                 <class>Magicstore_Lesson_Block</class>
             </lesson>
         </blocks>
+        <models>
+            <lesson>
+                <class>Magicstore_Lesson_Model</class>
+                <resourceModel>lesson_resource</resourceModel>
+            </lesson>
+            <lesson_resource>
+                <class>Magicstore_Lesson_Model_Resource</class>
+                <entities>
+                    <contact>
+                        <table>ain_contact</table>
+                    </contact>
+                </entities>
+            </lesson_resource>
+        </models>
     </global>
-    <models>
-    </models>
 </config>

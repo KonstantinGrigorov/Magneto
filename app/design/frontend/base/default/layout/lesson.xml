@@ -9,7 +9,7 @@ and open the template in the editor.
 <layout>
     <lesson_index_index>
         <reference name="content">
-            <block type="lesson/view" name="lesson"/>
+            <block type="lesson/view" name="lesson" template="magicstore/contact/view.php"/>
         </reference>
     </lesson_index_index>
 </layout>

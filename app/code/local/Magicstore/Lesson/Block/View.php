@@ -8,8 +8,14 @@
 
 class Magicstore_Lesson_Block_View extends Mage_Core_Block_Template 
 {
-    protected function _toHtml() 
-    {
-        return "Hello, world!";
+//    protected function _toHtml() 
+//    {
+//        die('www00');
+//        return "Hello, world!";
+//    }
+    public function getRequestedRecord() {
+        //die('www2');
+        return Mage::getModel('lesson/contact')->getCollection();
     }
+
 }
