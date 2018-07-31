@@ -11,6 +11,6 @@ class Magicstore_Lesson_Model_Resource_Contact extends Mage_Core_Model_Resource_
     protected function _construct() 
     {
         //die('www4');
-        $this->_init('lesson/contact');
+        $this->_init('lesson/contact','request_id');
     }
 }

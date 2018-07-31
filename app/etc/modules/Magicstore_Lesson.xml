@@ -8,7 +8,7 @@ and open the template in the editor.
 
 <config>
     <modules>
-        <Magicstore_Lesson>
+        <Magicstore_Lesson><!-- app/code/<codePool>/Magicstore/Lesson -->
             <active>true</active>
             <codePool>local</codePool>
         </Magicstore_Lesson>

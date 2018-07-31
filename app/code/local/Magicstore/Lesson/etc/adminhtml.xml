@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <menu>
+        <cms>
+            <children>
+                <guest_book translate="title" module="lesson">
+                    <sort_order>100</sort_order>
+                    <title>Our Guest book</title>
+                    <action>adminhtml/guestbook</action>
+                </guest_book>
+            </children>
+        </cms>
+    </menu>
+    <acl>
+        
+    </acl>
+</config>

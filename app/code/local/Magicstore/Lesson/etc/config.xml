@@ -1,16 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-
 <config>
     <modules>
         <Magicstore_Lesson>
             <version>1.0.0.0</version>
         </Magicstore_Lesson>
     </modules>
+    <global>
+        <blocks>
+            <lesson>
+                <class>Magicstore_Lesson_Block</class>
+            </lesson>
+        </blocks>
+        <helpers>
+            <lesson>
+                <class>Magicstore_Lesson_Helper</class>
+            </lesson>
+        </helpers>
+        <models>
+            <lesson>
+                <!-- catalog models class group declaration -->
+                <class>Magicstore_Lesson_Model</class>
+                 <!-- catalog resource models class group declaration -->
+                <resourceModel>lesson_resource</resourceModel>
+            </lesson>
+            <lesson_resource>
+                <class>Magicstore_Lesson_Model_Resource</class>
+                <entities>
+                    <contact>
+                        <table>ain_contact</table>
+                    </contact>
+                </entities>
+            </lesson_resource>
+        </models>
+    </global>
+    
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <my_magicstore before="Mage_Adminhtml">Magicstore_Lesson_Adminhtml</my_magicstore>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+    
     <frontend>
         <routers>
             <lesson>
@@ -29,25 +64,4 @@ and open the template in the editor.
             </updates>
         </layout>
     </frontend>
-    <global>
-        <blocks>
-            <lesson>
-                <class>Magicstore_Lesson_Block</class>
-            </lesson>
-        </blocks>
-        <models>
-            <lesson>
-                <class>Magicstore_Lesson_Model</class>
-                <resourceModel>lesson_resource</resourceModel>
-            </lesson>
-            <lesson_resource>
-                <class>Magicstore_Lesson_Model_Resource</class>
-                <entities>
-                    <contact>
-                        <table>ain_contact</table>
-                    </contact>
-                </entities>
-            </lesson_resource>
-        </models>
-    </global>
 </config>

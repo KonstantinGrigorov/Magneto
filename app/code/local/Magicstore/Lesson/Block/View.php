@@ -15,6 +15,7 @@ class Magicstore_Lesson_Block_View extends Mage_Core_Block_Template
 //    }
     public function getRequestedRecord() {
         //die('www2');
+        //Zend_Debug::dump(Mage::getModel('lesson/contact')->load(1)); die('www');
         return Mage::getModel('lesson/contact')->getCollection();
     }
 
