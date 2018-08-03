@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--<default>
+        <block type="page/html" name="root" output="toHtml" template="magicstore/lesson/simple_page.phtml" />
+    </default>-->
+<layout>
+    <customer_account_login>
+        <reference name="content">
+                <block type="cms/block" name="rada.notice">
+                    <action method="setBlockId">
+                        <id>my_verkhovna_rada_block </id>
+                    </action>
+                </block>    
+        </reference>
+    </customer_account_login>
+    <default>
+        <reference name="right">
+            <action method="unsetChild">
+                <name>right.poll</name>
+            </action>
+        </reference>
+    </default>
+</layout>

@@ -7,7 +7,7 @@
 // die('www1');
 $arrData = $this->getRequestedRecord()->getData();
 //var_dump($arrData); ?>
-<?php
+<?php die("1");
 if (isset($arrData) AND is_array($arrData)) {
     foreach ($arrData as $one) {
         echo "<ul> comment №". $one['request_id']."   

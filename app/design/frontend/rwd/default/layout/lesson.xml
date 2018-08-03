@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<layout>
+    <lesson_index_index>
+        <reference name="head"></reference>
+        <reference name="content">
+            <block type="lesson/view" name="lesson" template="magicstore/contact/view.phtml">
+                <action method="setData">
+                    <key>class</key>
+                    <value>contact-request</value>
+                </action>
+                <block type="cms/block" name="rada.notice">
+                    <action method="setBlockId">
+                        <id>my_verkhovna_rada_block</id>
+                    </action>
+                </block>   
+            </block>
+        </reference>
+    </lesson_index_index>
+</layout>

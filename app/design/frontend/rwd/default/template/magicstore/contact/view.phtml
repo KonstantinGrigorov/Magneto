@@ -1,0 +1,18 @@
+<?php //die("2");
+$arrData = $this->getRequestedRecord()->getData();
+if (isset($arrData) AND is_array($arrData)) {
+    foreach ($arrData as $one) {
+        echo "<ul class=".$this->getData('class')."> comment №". $one['request_id']."   
+                <li> user: ".$one['name']." </li>
+                <li> say: ".$one['contact']."</li>
+              </ul></br>";
+    }
+    
+    
+}
+
+?>
+<br>
+<div>
+<?php echo $this->getChildHtml('rada.notice') ?>
+</div>
