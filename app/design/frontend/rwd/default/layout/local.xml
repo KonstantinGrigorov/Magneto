@@ -13,10 +13,33 @@
         </reference>
     </customer_account_login>
     <default>
+        
         <reference name="right">
             <action method="unsetChild">
                 <name>right.poll</name>
             </action>
         </reference>
+        
+<!--        <reference name="header">
+            <action method="unsetChild">
+                <name>top.search</name>
+            </action>
+        </reference>-->
+        
+        <reference name="header">
+            <reference name="store_language">
+                <action method="insert">
+                    <name>top.search</name>
+                </action>
+            </reference>
+        </reference> 
+        
+<!--        <reference name="footer_links2">
+        <action method="addLink" translate="label title" module="catalog" ifconfig="catalog/seo/site_map"><label>Verkhovna Rada Link</label><url helper="catalog/map/getCategoryUrl" /><title>Verkhovna Rada Link</title></action>
+        </reference> -->
+        <reference name="footer_links2">
+            <action method="addLink" module="magicstore" ><label>Verkhovna Rada Link</label><url helper="lesson/getMyUrl" /><title>Verkhovna Rada Link</title></action>
+        </reference> 
+        
     </default>
 </layout>
