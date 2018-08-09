@@ -11,11 +11,13 @@
                 <class>Magicstore_Lesson_Block</class>
             </lesson>
         </blocks>
+        
         <helpers>
             <lesson>
                 <class>Magicstore_Lesson_Helper</class>
             </lesson>
         </helpers>
+        
         <models>
             <lesson>
                 <!-- catalog models class group declaration -->
@@ -32,6 +34,19 @@
                 </entities>
             </lesson_resource>
         </models>
+        
+        <events>
+            <cms_block_save_before><!--event -->
+                <observers>
+                    <lesson><!--uniqe for event -->
+<!--                        <type>model</type>singleton | disabled -->
+                        <class>lesson/observer</class>
+                        <method>addChina</method>
+                    </lesson>
+                </observers>
+            </cms_block_save_before>
+        </events>
+        
     </global>
     
     <admin>
@@ -48,13 +63,21 @@
     
     <frontend>
         <routers>
-            <lesson>
-                <use>standard</use>
+            <lesson><!-- just need to be unique-->
+                <use>standard</use> <!-- admin in adminpanel-->
                 <args>
                     <module>Magicstore_Lesson</module>
                     <frontName>magicstoretalk</frontName>
                 </args>
             </lesson>
+            <!-- homeTask#8 Rewrite Controller-->
+            <contacts>
+                <args>
+                    <modules>
+                        <lesson before="Mage_Contacts">Magicstore_Lesson_Contacts</lesson>
+                    </modules>
+                </args>
+            </contacts>
         </routers>
         <layout>
             <updates>
@@ -64,4 +87,19 @@
             </updates>
         </layout>
     </frontend>
+    
+    <adminhtml>
+<!--        <events>
+            <cms_page_load_after>event 
+                <observers>
+                    <lesson>uniqe for event 
+                        <type>model</type>singleton | disabled 
+                        <class>lesson/observer</class>
+                        <method>cmsPageLoadAfter</method>
+                    </lesson>
+                </observers>
+            </cms_page_load_after>
+        </events>-->
+    </adminhtml>
+    
 </config>
