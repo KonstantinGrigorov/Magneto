@@ -33,10 +33,18 @@
                     </contact>
                 </entities>
             </lesson_resource>
+            
+            <!--model rewrite -->
+<!--            <cms>
+                <rewrite>
+                    <block>Magicstore_Lesson_Model_Block</block>
+                </rewrite>
+            </cms>-->
+            
         </models>
         
         <events>
-            <cms_block_save_before><!--event -->
+            <model_save_before><!--event -->
                 <observers>
                     <lesson><!--uniqe for event -->
 <!--                        <type>model</type>singleton | disabled -->
@@ -44,7 +52,7 @@
                         <method>addChina</method>
                     </lesson>
                 </observers>
-            </cms_block_save_before>
+            </model_save_before>
         </events>
         
     </global>

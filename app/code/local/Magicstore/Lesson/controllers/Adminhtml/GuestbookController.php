@@ -9,7 +9,6 @@ class Magicstore_Lesson_Adminhtml_GuestbookController extends Mage_Adminhtml_Con
         $this->_setActiveMenu('cms/guest_book');
         $this->_addContent($this->getLayout()->createBlock('lesson/adminhtml_guestbook'));
         $this->renderLayout();
-        //Zend_Debug::dump(Mage::helper('lesson'));die;
     }
 
     public function gridAction()
