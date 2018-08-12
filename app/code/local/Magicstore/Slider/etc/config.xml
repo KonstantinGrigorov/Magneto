@@ -2,22 +2,22 @@
 <config>
     <modules>
         <Magicstore_Slider>
-            <version>0.1.1</version>
+            <version>0.0.1</version>
         </Magicstore_Slider>
     </modules>
     
     <global>
-<!--        <resources>
+        <resources>
             <slider_setup>
                 <setup>
                     <module>Magicstore_Slider</module>
-                    <class>Mage_Core_Model_Resource_Setup</class>
+<!--                    <class>Mage_Core_Model_Resource_Setup</class>-->
                 </setup>
             </slider_setup>
-        </resources>-->
+        </resources>
         
         
-        <models>
+<!--        <models>
             <slider>
                 <class>Magicstore_Slider_Model</class>
                 <resourceModel>magicstore_slider_resource</resourceModel>
@@ -30,7 +30,7 @@
                     </slider>
                 </entities>
             </slider_resource>
-        </models>
+        </models>-->
     </global> 
     
     
