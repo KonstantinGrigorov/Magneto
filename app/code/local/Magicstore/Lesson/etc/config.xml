@@ -5,7 +5,9 @@
             <version>1.0.0.0</version>
         </Magicstore_Lesson>
     </modules>
+    
     <global>
+        
         <blocks>
             <lesson>
                 <class>Magicstore_Lesson_Block</class>

@@ -1,4 +1,21 @@
+<div class="slider-holder">
+        <span id="slider-image-1"></span>
+        <span id="slider-image-2"></span>
+        <span id="slider-image-3"></span>
+        <div class="image-holder">
+            <img src="images/sliderImage1.jpg" class="slider-image" />
+            <img src="images/sliderImage2.jpg" class="slider-image" />
+            <img src="images/sliderImage3.jpg" class="slider-image" />
+        </div>
+        <div class="button-holder">
+            <a href="#slider-image-1" class="slider-change"></a>
+            <a href="#slider-image-2" class="slider-change"></a>
+            <a href="#slider-image-3" class="slider-change"></a>
+        </div>
+    </div>
+
 <?php //die("2");
+
 $arrData = $this->getRequestedRecord()->getData();
 if (isset($arrData) AND is_array($arrData)) {
     foreach ($arrData as $one) {
@@ -12,7 +29,9 @@ if (isset($arrData) AND is_array($arrData)) {
 }
 
 ?>
+
 <br>
 <div>
 <?php echo $this->getChildHtml('rada.notice') ?>
 </div>
+

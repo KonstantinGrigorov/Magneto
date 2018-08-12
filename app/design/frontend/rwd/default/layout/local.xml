@@ -14,6 +14,12 @@
     </customer_account_login>
     <default>
         
+        <reference name="head">
+            <action method="addCss">
+                <stylesheet>css/slider.css</stylesheet>
+            </action>
+        </reference>
+        
         <reference name="right">
             <action method="unsetChild">
                 <name>right.poll</name>
