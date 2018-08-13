@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <Magicstore_Blog><!-- app/code/<codePool>/Magicstore/Slider -->
+            <active>true</active>
+            <codePool>local</codePool>
+        </Magicstore_Blog>
+    </modules>
+</config>
