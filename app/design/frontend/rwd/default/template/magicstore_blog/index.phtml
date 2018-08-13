@@ -1,0 +1,13 @@
+<?php
+$posts = $this->getPostsCollection();
+//var_dump($posts);die('qqq');
+$postViewUrl = Mage::getUrl('post/index/view');
+?>
+<h1>Our posts</h1>
+<?php foreach ($posts as $item): ?>
+    <h2>
+        <a href="<?php echo $postViewUrl; ?>?id=<?php echo $item->getPostId(); ?>">
+            <?php echo $item->getPostName(); ?>
+        </a>
+    </h2>
+<?php endforeach; ?>

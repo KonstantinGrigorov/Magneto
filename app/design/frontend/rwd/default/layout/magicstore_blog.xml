@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+<layout>
+    <my_blog_index_index>
+        <reference name="content">
+            <block type="blog/posts" template="magicstore_blog/index.phtml" />
+        </reference>
+    </my_blog_index_index>
+    <my_blog_index_view>
+        <reference name="content">
+            <block type="blog/posts" name="onepost.content" template="magicstore_blog/view.phtml" />
+        </reference>
+    </my_blog_index_view>
+</layout>
