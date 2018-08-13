@@ -9,9 +9,9 @@
     </default>
 </layout>-->
 <layout>
-            <updates>
-                <lesson>
-                    <file>lesson.xml</file>
-                </lesson>
-            </updates>
-        </layout>
+    <updates>
+        <lesson>
+            <file>lesson.xml</file>
+        </lesson>
+    </updates>
+</layout>

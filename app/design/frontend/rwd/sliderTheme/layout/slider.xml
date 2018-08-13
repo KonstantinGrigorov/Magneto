@@ -1,3 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
+<layout>
+    <slider_index_index>
+        <reference name="content">
+            <block type="slider/slider" template="slider/view.phtml" />
+        </reference>
+    </slider_index_index>
+    <slider_index_view>
+        <reference name="content">
+            <block type="slider/view" name="slider.content" template="slider/view.phtml" />
+        </reference>
+    </slider_index_view>
+</layout>
