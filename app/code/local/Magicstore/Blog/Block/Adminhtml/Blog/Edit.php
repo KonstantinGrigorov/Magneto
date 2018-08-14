@@ -7,6 +7,12 @@ class Magicstore_Blog_Block_Adminhtml_Blog_Edit extends Mage_Adminhtml_Block_Wid
     {
         $this->_blockGroup = 'blog';
         $this->_controller = 'adminhtml_blog';
+        
+        $this->_addButton('delete', array(
+            'label'     => Mage::helper('lesson')->__('Delete'),
+            'onclick'   => 'deleteConfirm("Are you sure that want to delete this?")',
+            'class'     => 'scalable',
+        ), -100);      
     }
 
     public function getHeaderText()

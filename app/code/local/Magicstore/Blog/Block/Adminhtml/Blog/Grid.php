@@ -4,7 +4,7 @@ class Magicstore_Blog_Block_Adminhtml_Blog_Grid extends Mage_Adminhtml_Block_Wid
 {
 
     protected function _prepareCollection()
-    {    //die('www1');
+    {    
         $collection = Mage::getModel('blog/posts')->getCollection();
         $this->setCollection($collection);
         return parent::_prepareCollection();
@@ -13,7 +13,6 @@ class Magicstore_Blog_Block_Adminhtml_Blog_Grid extends Mage_Adminhtml_Block_Wid
 
     protected function _prepareColumns()
     {
-        // die('www2');
         $helper = Mage::helper('blog');
 
         $this->addColumn('post_id', array(
@@ -88,7 +87,7 @@ class Magicstore_Blog_Block_Adminhtml_Blog_Grid extends Mage_Adminhtml_Block_Wid
     public function getRowUrl($model)
     {
         return $this->getUrl('*/*/edit', array(
-                    'id' => $model->getId(),
+                    'post_id' => $model->getId(),
                 ));
     }
 

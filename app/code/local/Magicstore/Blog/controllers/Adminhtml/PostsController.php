@@ -5,12 +5,6 @@ class Magicstore_Blog_Adminhtml_PostsController extends Mage_Adminhtml_Controlle
 
     public function indexAction()
     {
-//        $this->loadLayout();
-//        $this->_setActiveMenu('blog');
-//
-//        $contentBlock = $this->getLayout()->createBlock('blog/adminhtml_blog');
-//        $this->_addContent($contentBlock);
-//        $this->renderLayout();
         $this->loadLayout()->_setActiveMenu('blog');
         $this->_addContent($this->getLayout()->createBlock('blog/adminhtml_blog'));
         $this->renderLayout();
@@ -23,10 +17,9 @@ class Magicstore_Blog_Adminhtml_PostsController extends Mage_Adminhtml_Controlle
         if (is_array($posts) && sizeof($posts) > 0) {
             try {
                 foreach ($posts as $id) {
-                   // var_dump($id);die;
                     Mage::getModel('blog/posts')->setId($id)->delete();
                 }
-                $this->_getSession()->addSuccess($this->__('Total of %d news have been deleted', sizeof($news)));
+                $this->_getSession()->addSuccess($this->__('Total of %d posts have been deleted', sizeof($posts)));
             } catch (Exception $e) {
                 $this->_getSession()->addError($e->getMessage());
             }
@@ -43,10 +36,9 @@ class Magicstore_Blog_Adminhtml_PostsController extends Mage_Adminhtml_Controlle
     
     public function editAction()
     {
-        //var_dump($this->getRequest());die;
-        $id = (int) $this->getRequest()->getParam('post_id');
+        $postid = (int) $this->getRequest()->getParam('post_id');
          
-        Mage::register('current_post', Mage::getModel('blog/posts')->load($id));
+        Mage::register('current_post', Mage::getModel('blog/posts')->load($postid));
 
         $this->loadLayout()->_setActiveMenu('blog');
         $this->_addContent($this->getLayout()->createBlock('blog/adminhtml_blog_edit'));
@@ -56,14 +48,18 @@ class Magicstore_Blog_Adminhtml_PostsController extends Mage_Adminhtml_Controlle
     public function saveAction()
     {
         if ($data = $this->getRequest()->getPost()) {
+           
             try {
+                $helper = Mage::helper('blog');
                 $model = Mage::getModel('blog/posts');
                 $model->setData($data)->setId($this->getRequest()->getParam('post_id'));
-                if(!$model->getCreated()){
-                    $model->setCreated(now());
+                if(!$model->getPostCreated()){
+                    $model->setPostCreated(now());
+                }else if(!$model->getPostUpdated()){
+                    $model->setPostUpdated(now());
+                    
                 }
                 $model->save();
-
                 Mage::getSingleton('adminhtml/session')->addSuccess($this->__('Post was saved successfully'));
                 Mage::getSingleton('adminhtml/session')->setFormData(false);
                 $this->_redirect('*/*/');
@@ -83,7 +79,6 @@ class Magicstore_Blog_Adminhtml_PostsController extends Mage_Adminhtml_Controlle
     public function deleteAction()
     {
         $id = (int)$this->getRequest()->getParam('post_id');
-            var_dump($id);die;
             try {
                 Mage::getModel('blog/posts')->setPostId($id)->delete();
                 Mage::getSingleton('adminhtml/session')->addSuccess($this->__('Post was deleted successfully'));

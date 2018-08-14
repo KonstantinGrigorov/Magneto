@@ -3,13 +3,19 @@
 class Magicstore_Blog_Block_Adminhtml_Blog_Edit_Form extends Mage_Adminhtml_Block_Widget_Form
 {
 
-    //Инициализируем форму
     public function __construct()
     {
-        //die('pr');
         parent::__construct();
         $this->setId('blog_request');
         $this->setTitle(Mage::helper('blog')->__('Request info'));
+    }
+    
+    protected function _prepareLayout()
+    {
+        parent::_prepareLayout();
+        if (Mage::getSingleton('cms/wysiwyg_config')->isEnabled()) {
+            $this->getLayout()->getBlock('head')->setCanLoadTinyMce(true);
+        }
     }
     
     protected function _prepareForm()
@@ -19,16 +25,21 @@ class Magicstore_Blog_Block_Adminhtml_Blog_Edit_Form extends Mage_Adminhtml_Bloc
         $form = new Varien_Data_Form(array(
                     'id' => 'edit_form',
                     'action' => $this->getUrl('*/*/save', array(
-                        'id' => $this->getRequest()->getParam('post_id')
+                        'id' => (int)$this->getRequest()->getParam('post_id')
                     )),
                     'method' => 'post',
                     
                 ));
-
         $this->setForm($form);
 
         $fieldset = $form->addFieldset('posts_form', array('legend' => $helper->__('Blog Information')));
-
+        
+        if ($this->getRequest()->getParam('post_id')) {
+            $fieldset->addField('post_id', 'hidden', [
+                'label' => $helper->__('id'),
+                'name' => 'post_id',
+            ]);
+        }
         $fieldset->addField('post_name', 'text', array(
             'label' => $helper->__('Title'),
             'required' => true,
@@ -44,25 +55,17 @@ class Magicstore_Blog_Block_Adminhtml_Blog_Edit_Form extends Mage_Adminhtml_Bloc
             'label' => $helper->__('Content'),
             'required' => true,
             'name' => 'post_content',
+            'wysiwyg' => true, 
         ));
-//        $fieldset->addField('post_status', 'text', array(
-//            'label' => $helper->__('Status'),
-//            'required' => true,
-//            'name' => 'post_status',
-//        ));
+
         $fieldset->addField('post_status', 'select', array(
           'label'     => $helper->__('Category'),
           'required'  => true,
           'name'      => 'post_status',
-          'values' => array('-1'=>'Please Select..','1' => 'enable','2' => 'disable'),
+          'values' => array('0'=>'disable','1' => 'enable'),
         ));
         
-//        $fieldset->addField('category_id', 'text', array(
-//            'label' => $helper->__('Category'),
-//            'required' => true,
-//            'name' => 'category_id',
-//        ));
-//        
+
         $fieldset->addField('category_id', 'select', array(
           'label'     => $helper->__('Category'),
           'required'  => true,
@@ -70,7 +73,7 @@ class Magicstore_Blog_Block_Adminhtml_Blog_Edit_Form extends Mage_Adminhtml_Bloc
           'onclick' => "",
           'onchange' => "",
           'value'  => '1',
-          'values' => array('-1'=>'Please Select..','1' => 'sport','2' => 'politic'),
+          'values' => array('1'=>'Culture','2' => 'sport','3' => 'politic'),
           'disabled' => false,
           'readonly' => false,
           'after_element_html' => '<small>Choose a post category, please</small>',

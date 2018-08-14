@@ -13,7 +13,6 @@ class Magicstore_Blog_Block_Adminhtml_Blog extends Mage_Adminhtml_Block_Widget_G
          
         $this->_headerText = $helper->__('Blog Management');
         $this->_addButtonLabel = $helper->__('Add post');
-        //die('www17');
     }
     
 
