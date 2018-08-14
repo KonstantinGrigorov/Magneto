@@ -10,4 +10,9 @@
             <block type="blog/posts" name="onepost.content" template="magicstore_blog/view.phtml" />
         </reference>
     </my_blog_index_view>
+    <my_blog_index_categoryview>
+        <reference name="content">
+            <block type="blog/posts" name="onecategory.content" template="magicstore_blog/categoryview.phtml" />
+        </reference>
+    </my_blog_index_categoryview>
 </layout>

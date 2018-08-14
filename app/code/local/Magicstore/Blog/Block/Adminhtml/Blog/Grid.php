@@ -63,10 +63,13 @@ class Magicstore_Blog_Block_Adminhtml_Blog_Grid extends Mage_Adminhtml_Block_Wid
         $this->addColumn('category_id', array(
             'header' => $helper->__('Category'),
             'index' => 'category_id',
-            'type'      => 'options',
-            'options'   => array(
-                1 => Mage::helper('blog')->__('Sport'),
-                2 => Mage::helper('blog')->__('Politic'))
+            'options' => $helper->getCategoriesList(),
+            'type'  => 'options',
+            'width' => '150px',
+//            'type'      => 'options',
+//            'options'   => array(
+//                1 => Mage::helper('blog')->__('Sport'),
+//                2 => Mage::helper('blog')->__('Politic'))
         ));
         
         return parent::_prepareColumns();

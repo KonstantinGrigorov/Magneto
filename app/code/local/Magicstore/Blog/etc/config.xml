@@ -45,6 +45,9 @@
                     <table_post>
                         <table>magicstore_post</table>
                     </table_post>
+                    <table_categories>
+                        <table>magicstore_category</table>
+                    </table_categories>
                 </entities>
             </blog_resource>
         </models>
@@ -82,6 +85,18 @@
             <blog module="blog">
                 <title>Our blog</title>
                 <sort_order>77</sort_order>
+                <children>
+                    <blog_posts translate="title" module="blog">
+                        <title>Posts</title>
+                        <sort_order>10</sort_order>
+                        <action>blog_admin/adminhtml_posts</action>
+                    </blog_posts>
+                    <blog_category translate="title" module="blog">
+                        <title>Categories</title>
+                        <sort_order>20</sort_order>
+                        <action>blog_admin/adminhtml_category</action>
+                    </blog_category>
+                </children>
                 <action>blog_admin/adminhtml_posts</action>
             </blog>
         </menu>

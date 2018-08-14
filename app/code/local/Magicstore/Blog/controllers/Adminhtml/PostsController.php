@@ -37,10 +37,19 @@ class Magicstore_Blog_Adminhtml_PostsController extends Mage_Adminhtml_Controlle
     public function editAction()
     {
         $postid = (int) $this->getRequest()->getParam('post_id');
-         
-        Mage::register('current_post', Mage::getModel('blog/posts')->load($postid));
+        $model = Mage::getModel('blog/posts');
+        
+        if($data = Mage::getSingleton('adminhtml/session')->getFormData()){
+            $model->setData($data)->setId($postid);
+        } else {
+            $model->load($postid);
+        }
+        
+        
+        Mage::register('current_post', $model);
 
         $this->loadLayout()->_setActiveMenu('blog');
+        $this->_addLeft($this->getLayout()->createBlock('blog/adminhtml_blog_edit_tabs'));
         $this->_addContent($this->getLayout()->createBlock('blog/adminhtml_blog_edit'));
         $this->renderLayout();
     }
