@@ -20,7 +20,7 @@
                 <use>standard</use>
                 <args>
                     <module>Magicstore_Blog</module>
-                    <frontName>post</frontName>
+                    <frontName>blog</frontName>
                 </args>
             </my_blog>
         </routers>

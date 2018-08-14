@@ -1,12 +1,23 @@
 <?php
-$posts = $this->getPostsCollection();
-$postViewUrl = Mage::getUrl('post/index/view');
+//$posts = $this->getPostsCollection();
+$cat = $this->getCategoryCollection();
+//$postViewUrl = Mage::getUrl('post/index/view');
+$categoryViewUrl = Mage::getUrl('blog/index/categoryview');
 ?>
-<h1>Our posts</h1>
-<?php foreach ($posts as $item): ?>
+<h1>Our posts categories</h1>
+<?php //var_dump($cat);die; ?>
+<?php //foreach ($posts as $item): ?>
+<!--    <h2>
+        <a href="//<?php //echo $postViewUrl; ?>?id=<?php //echo $item->getPostId(); ?>">
+            //<?php //echo $item->getPostName(); ?>
+        </a>
+    </h2>-->
+<?php //endforeach; ?>
+<?php foreach ($cat as $item): ?>
     <h2>
-        <a href="<?php echo $postViewUrl; ?>?id=<?php echo $item->getPostId(); ?>">
-            <?php echo $item->getPostName(); ?>
+        <a href="<?php echo $categoryViewUrl; ?>?id=<?php echo $item->getCategoryId(); ?>">
+            <?php echo $item->getCategoryName(); ?>
         </a>
     </h2>
+<div> <?php echo $item->getCategoryDescription(); ?></div>
 <?php endforeach; ?>

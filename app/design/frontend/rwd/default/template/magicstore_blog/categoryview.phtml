@@ -1,2 +1,16 @@
+<?php
+$posts = $this->getCategoryPostsCollection($categoryItem->getCategoryId());
+$postViewUrl = Mage::getUrl('blog/index/view');
+?>
+
 <h1><?php echo $categoryItem->getCategoryName(); ?></h1>
 <div class="discr"><?php echo $categoryItem->getCategoryDescription(); ?></div></br>
+<h1>This category posts</h1>
+<?php //var_dump($posts);die; ?>
+<?php foreach ($posts as $item): ?>
+    <h2>
+        <a href="<?php echo $postViewUrl; ?>?id=<?php echo $item->getPostId(); ?>">
+            <?php echo $item->getPostName(); ?>
+        </a>
+    </h2>
+<?php endforeach; ?>
