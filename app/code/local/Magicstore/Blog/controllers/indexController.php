@@ -9,7 +9,7 @@ class Magicstore_Blog_IndexController extends Mage_Core_Controller_Front_Action
         $this->renderLayout();
     }
     
-    public function viewAction()
+    public function postviewAction()
     {
        
         $postId = (int) Mage::app()->getRequest()->getParam('id', 0);

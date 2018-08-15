@@ -12,8 +12,8 @@ class Magicstore_Blog_Model_Category extends Mage_Core_Model_Abstract
     public function getImageUrl()
     {
         $helper = Mage::helper('blog');
-        if ($this->getId() && file_exists($helper->getImagePath($this->getId()))) {
-            return $helper->getImageUrl($this->getId());
+        if ($this->getCategoryId() && file_exists($helper->getImagePath($this->getCategoryId()))) {
+            return $helper->getImageUrl($this->getCategoryId());
         }
         return null;
     }
@@ -33,6 +33,11 @@ class Magicstore_Blog_Model_Category extends Mage_Core_Model_Abstract
         $collection = Mage::getModel('blog/posts')->getCollection();
         $collection->addFieldToFilter('category_id', $this->getCategoryId());
         return $collection;
+    }
+    
+    public function getImageSrc()
+    {
+        return Mage::getBaseDir('media') .DS. 'blog' . DS.$this->getCategoryImage();
     }
 
 }

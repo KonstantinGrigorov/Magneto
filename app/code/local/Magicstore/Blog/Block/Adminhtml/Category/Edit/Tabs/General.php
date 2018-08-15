@@ -23,7 +23,7 @@ class Magicstore_Blog_Block_Adminhtml_Category_Edit_Tabs_General extends Mage_Ad
             'required' => true,
             'name' => 'category_description',
         ));
-        $fieldset->addField('category_image', 'image', array(
+        $fieldset->addField('category_image', 'text', array(
             'label' => $helper->__('Image'),
             'required' => true,
             'name' => 'category_image',

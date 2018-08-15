@@ -1,16 +1,25 @@
 <?php
 $posts = $this->getCategoryPostsCollection($categoryItem->getCategoryId());
-$postViewUrl = Mage::getUrl('blog/index/view');
+$postViewUrl = Mage::getUrl('blog/index/postview');
 ?>
+<h1>Category page</h1>
 
-<h1><?php echo $categoryItem->getCategoryName(); ?></h1>
+<h2><?php echo $categoryItem->getCategoryName(); ?></h2>
+
 <div class="discr"><?php echo $categoryItem->getCategoryDescription(); ?></div></br>
-<h1>This category posts</h1>
-<?php //var_dump($posts);die; ?>
+
+<?php if($categoryItem->getCategoryImage()):?>
+<div class="block-image" align="left">
+    <img src="<?php echo $categoryItem->getImageSrc()?>" height="150" width="auto" alt="<?php $categoryItem->getCategoryName()?>" title="<?php $categoryItem->getCategoryName()?>">
+<?php endif;?>
+    
+    <h3>This category posts:</h3></br>
+
 <?php foreach ($posts as $item): ?>
     <h2>
         <a href="<?php echo $postViewUrl; ?>?id=<?php echo $item->getPostId(); ?>">
             <?php echo $item->getPostName(); ?>
         </a>
-    </h2>
+    </h2></br>
+    <div class="content"><?php echo $item->getPostDiscription(); ?></div></br>
 <?php endforeach; ?>

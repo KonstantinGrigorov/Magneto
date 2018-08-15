@@ -5,11 +5,11 @@
             <block type="blog/posts" template="magicstore_blog/index.phtml" />
         </reference>
     </my_blog_index_index>
-    <my_blog_index_view>
+    <my_blog_index_postview>
         <reference name="content">
-            <block type="blog/posts" name="onepost.content" template="magicstore_blog/view.phtml" />
+            <block type="blog/posts" name="onepost.content" template="magicstore_blog/postview.phtml" />
         </reference>
-    </my_blog_index_view>
+    </my_blog_index_postview>
     <my_blog_index_categoryview>
         <reference name="content">
             <block type="blog/posts" name="onecategory.content" template="magicstore_blog/categoryview.phtml" />

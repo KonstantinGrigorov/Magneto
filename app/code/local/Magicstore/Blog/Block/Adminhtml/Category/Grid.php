@@ -31,11 +31,11 @@ class Magicstore_Blog_Block_Adminhtml_Category_Grid extends Mage_Adminhtml_Block
             'type' => 'text',
         ));
         
-//        $this->addColumn('category_image', array(
-//            'header' => $helper->__('Image'),
-//            'index' => 'category_image',
-//            'type' => 'image',
-//        ));
+        $this->addColumn('category_image', array(
+            'header' => $helper->__('Image'),
+            'index' => 'category_image',
+            'type' => 'text',
+        ));
 
         return parent::_prepareColumns();
     }

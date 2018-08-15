@@ -1,11 +1,11 @@
 <?php $categoryViewUrl = Mage::getUrl('blog/index/categoryview'); ?>
 <h1><?php echo $postItem->getPostName(); ?></h1>
 <div class="date"><?php echo $postItem->getPostCreated(); ?></div></br>
-<div class="discr"><?php echo $postItem->getPostDiscription(); ?></div></br>
+
 <div class="content"><?php echo $postItem->getPostContent(); ?></div></br>
 <h4>
     <a href="<?php echo $categoryViewUrl; ?>?id=<?php echo $postItem->getCategoryId(); ?>">
-        Category: <?php echo $categoryName; ?>    
+        Back to <?php echo $categoryName; ?>    
     </a>
 
 </h4>

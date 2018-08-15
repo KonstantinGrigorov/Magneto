@@ -47,17 +47,17 @@ class Magicstore_Blog_Adminhtml_CategoryController extends Mage_Adminhtml_Contro
 
                 $id = $model->getCategoryId();
                 
-                if (isset($_FILES['image']['name']) && $_FILES['image']['name'] != '') {
-                    $uploader = new Varien_File_Uploader('image');
-                    $uploader->setAllowedExtensions(array('jpg', 'jpeg','png'));
-                    $uploader->setAllowRenameFiles(false);
-                    $uploader->setFilesDispersion(false);
-                    $uploader->save($helper->getImagePath(), $id . '.jpg'); // Upload the image
-                } else {
-                    if (isset($data['image']['delete']) && $data['image']['delete'] == 1) {
-                        @unlink($helper->getImagePath($id));
-                    }
-                }
+//                if (isset($_FILES['image']['name']) && $_FILES['image']['name'] != '') {
+//                    $uploader = new Varien_File_Uploader('image');
+//                    $uploader->setAllowedExtensions(array('jpg', 'jpeg','png'));
+//                    $uploader->setAllowRenameFiles(false);
+//                    $uploader->setFilesDispersion(false);
+//                    $uploader->save($helper->getImagePath(), $id . '.jpg'); // Upload the image
+//                } else {
+//                    if (isset($data['image']['delete']) && $data['image']['delete'] == 1) {
+//                        @unlink($helper->getImagePath($id));
+//                    }
+//                }
 
 
                 Mage::getSingleton('adminhtml/session')->addSuccess($this->__('Category was saved successfully'));
